@@ -12,7 +12,7 @@
       </div>
   
       <!-- Team carousel -->
-      <div class="relative h-[500px] w-full">
+      <div class="relative h-[500px] w-full ">
         <TransitionGroup 
           name="card-transition" 
           tag="div" 

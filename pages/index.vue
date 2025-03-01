@@ -9,14 +9,6 @@
         <div class="flex items-center">
           <div class="w-10 h-10 mr-2">
             <SingleLottie :animation="logoAnimation" />
-            <!-- <lottie-player
-              :src="logoAnimation"
-              background="transparent"
-              speed="1"
-              class="w-full h-full"
-              loop
-              autoplay
-            ></lottie-player> -->
           </div>
           <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-blue-600">DeCalcify</span>
         </div>
@@ -34,32 +26,13 @@
           <button class="hidden md:block px-4 py-2 rounded-full border border-teal-500 text-teal-500 hover:bg-teal-50 transition-colors duration-300">
             Login
           </button>
-          <button class="px-4 py-2 rounded-full bg-gradient-to-r from-teal-500 to-blue-600 text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+          <button class="px-4 py-2 hidden md:block rounded-full bg-gradient-to-r from-teal-500 to-blue-600 text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105">
             Get Started
           </button>
-          <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden">
+          <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden pr-6">
             <div class="w-6 h-6">
-              <SingleLottie
-                background="transparent"
-                speed="1"
-                class="w-full h-full"
-                :loop="false"
-                :autoplay="false"
-                :direction="mobileMenuOpen ? 1 : -1"
-                mode="normal"
-                ref="menuAnimationRef"
-              :animation="menuAnimation" width="50px"  />
-              <!-- <lottie-player
-                :src="menuAnimation"
-                background="transparent"
-                speed="1"
-                class="w-full h-full"
-                :loop="false"
-                :autoplay="false"
-                :direction="mobileMenuOpen ? 1 : -1"
-                mode="normal"
-                ref="menuAnimationRef"
-              ></lottie-player> -->
+              <!-- openeee -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 9.5H7M21 4.5H3M21 14.5H3M21 19.5H7"/></svg>
             </div>
           </button>
         </div>
@@ -68,13 +41,13 @@
       <!-- Mobile menu -->
       <div 
         v-show="mobileMenuOpen" 
-        class="md:hidden absolute w-full bg-white shadow-lg py-4 px-4 transition-all duration-300"
+        class="md:hidden absolute z-50 w-full bg-white shadow-lg py-4 px-4 transition-all duration-300"
         :class="{ 'opacity-100 translate-y-0': mobileMenuOpen, 'opacity-0 -translate-y-10 pointer-events-none': !mobileMenuOpen }"
       >
         <div class="flex flex-col space-y-4">
-          <a v-for="(item, index) in navItems" :key="index" 
+          <a @click="mobileMenuOpen = false" v-for="(item, index) in navItems" :key="index" 
              :href="item.link" 
-             class="text-gray-700 hover:text-teal-500 transition-colors duration-300 py-2 border-b border-gray-100">
+             class="text-gray-700 z-50 hover:text-teal-500 transition-colors duration-300 py-2 border-b border-gray-100">
             {{ item.name }}
           </a>
           <button class="px-4 py-2 rounded-full border border-teal-500 text-teal-500 hover:bg-teal-50 transition-colors duration-300 w-full">
@@ -200,91 +173,6 @@
       </div>
     </div>
   </section>
-  <!-- <section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16" v-motion :initial="{ opacity: 0, y: 50 }" :visible="{ opacity: 1, y: 0, transition: { duration: 800 } }">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Powerful Features</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Our comprehensive solution streamlines the entire decalcification process in your laboratory
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div 
-          v-for="(feature, index) in features" 
-          :key="index"
-          class="bg-white rounded-xl shadow-lg p-6 transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
-          v-motion
-          :initial="{ opacity: 0, y: 100 }"
-          :visible="{ opacity: 1, y: 0, transition: { delay: 100 * index, duration: 800 } }"
-        >
-          <div class="w-20 h-20 mb-6 mx-auto">
-            <ClientOnly>
-              <LottiePlayer
-                :src="feature.animation"
-                background="transparent"
-                :speed="1"
-                class="w-full h-full"
-                :loop="true"
-                :autoplay="true"
-              />
-              <template #fallback>
-                <div class="w-full h-full bg-gray-200 animate-pulse rounded-full"></div>
-              </template>
-            </ClientOnly>
-          </div>
-          <h3 class="text-xl font-bold mb-3">{{ feature.title }}</h3>
-          <p class="text-gray-600">{{ feature.description }}</p>
-        </div>
-      </div>
-      
-      <div class="mt-16 text-center">
-        <button class="px-8 py-3 rounded-full bg-gradient-to-r from-teal-500 to-blue-600 text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-          Explore All Features
-        </button>
-      </div>
-    </div>
-  </section> -->
-    <!-- <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16" v-motion :initial="{ opacity: 0, y: 50 }" :visible="{ opacity: 1, y: 0, transition: { duration: 800 } }">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Powerful Features</h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our comprehensive solution streamlines the entire decalcification process in your laboratory
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div 
-            v-for="(feature, index) in features" 
-            :key="index"
-            class="bg-white rounded-xl shadow-lg p-6 transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
-            v-motion
-            :initial="{ opacity: 0, y: 100 }"
-            :visible="{ opacity: 1, y: 0, transition: { delay: 100 * index, duration: 800 } }"
-          >
-            <div class="w-16 h-16 mb-6">
-              <lottie-player
-                :src="feature.animation"
-                background="transparent"
-                speed="1"
-                class="w-full h-full"
-                loop
-                autoplay
-              ></lottie-player>
-            </div>
-            <h3 class="text-xl font-bold mb-3">{{ feature.title }}</h3>
-            <p class="text-gray-600">{{ feature.description }}</p>
-          </div>
-        </div>
-        
-        <div class="mt-16 text-center">
-          <button class="px-8 py-3 rounded-full bg-gradient-to-r from-teal-500 to-blue-600 text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-            Explore All Features
-          </button>
-        </div>
-      </div>
-    </section> -->
 
     <!-- About Us Section -->
     <section id="about" class="py-20">
@@ -298,14 +186,6 @@
                     <div class="w-full h-full bg-gray-200 animate-pulse rounded-full"></div>
                   </template>
                 </ClientOnly>
-              <!-- <lottie-player
-                :src="aboutAnimation"
-                background="transparent"
-                speed="1"
-                class="w-full"
-                loop
-                autoplay
-              ></lottie-player> -->
             </div>
           </div>
           
@@ -340,9 +220,7 @@
       </div>
     </section>
 
-    <!-- <OurTeam /> -->
     <TeamCarousel id="team" />
-    <!-- <TeamShowcase /> -->
 
     <!-- How to Use Section -->
     <section id="how-it-works" class="py-20 bg-gray-50">
