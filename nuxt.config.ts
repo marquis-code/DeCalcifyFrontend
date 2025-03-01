@@ -1,7 +1,5 @@
-import { defineNuxtConfig } from "nuxt/config";
-
-export default defineNuxtConfig({
-  target: 'static',
+export default {
+  ssr: false,
   postcss: {
     plugins: {
       "postcss-import": {},
@@ -12,49 +10,35 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "Buildr - Build the future of your business",
+      title: "DeCalcify",
       htmlAttrs: { lang: "en" },
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "format-detection", content: "telephone=no" },
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" },    {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@100..900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap',
-      }],
-      script: [
-        {
-          src: "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js",
-          type: "text/javascript",
-        },
-      ],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
     },
   },
-
-  googleFonts: {
-    families: {
-      'Lexend+Tera': [400, 500, 700], // Specify font weights as needed
-    },
-    display: 'swap', // Optional: Controls how the font is displayed
-    prefetch: true, // Optional: Prefetch the font for faster loading
-    preconnect: true, // Optional: Preconnect to the font server
-    preload: true, // Optional: Preload the font
+  plugins: [
+    "~/plugins/aos.client.ts",
+    // "~/plugins/lottie.client.ts"
+  ],
+  css: ['@/assets/css/main.css'],
+  tailwindcss: {
+    cssPath: "@/assets/css/main.css",
   },
-  plugins: ["~/plugins/aos.client.ts"],
-  css: ["/assets/css/main.css"],
-  modules: ['@kevinmarrec/nuxt-pwa', "@nuxtjs/tailwindcss", '@nuxtjs/google-fonts'],
+  modules: ["@nuxtjs/tailwindcss", '@vueuse/motion/nuxt'], // ✅ Fix modules array
   pwa: {
     workbox: {
       enabled: true
     },
     meta: {
-      title: "Buildr - Build the future of your business",
+      title: "DeCalcify",
       author: "Marquis",
       mobileAppIOS: false,
       mobileApp: true,
-      description:
-        "specialize in software development, product design, and bespoke solutions to help businesses innovate and thrive in the digital age.",
+      description: "Automate Your Decalcification Process | Transform your medical laboratory workflow with our intelligent automation solution. Save time, reduce errors, and improve efficiency.",
       theme_color: "#27396B",
       background_color: "#27396B",
       display: "standalone",
@@ -65,7 +49,7 @@ export default defineNuxtConfig({
       sizes: [64, 120, 144, 152, 192, 384, 512],
     },
     manifest: {
-      name: "Achilles Drill",
+      name: "Erranders",
       lang: "fa",
       useWebmanifestExtension: false,
     },
@@ -95,5 +79,10 @@ export default defineNuxtConfig({
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
       },
     ],
-  }
-});
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.VITE_BASE_URL || 'https://erranders-api-service.onrender.com',
+    },
+  },
+};
