@@ -267,10 +267,10 @@
               
               <div class="md:w-1/2 md:px-10 relative">
                 <!-- Step number circle -->
-                <div class="absolute top-0 left-1/2 md:left-auto md:top-1/2 transform -translate-x-1/2 md:-translate-x-0 md:-translate-y-1/2 w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-blue-600 text-white flex items-center justify-center font-bold z-10"
+                <!-- <div class="absolute top-0 left-1/2 md:left-auto md:top-1/2 transform -translate-x-1/2 md:-translate-x-0 md:-translate-y-1/2 w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-blue-600 text-white flex items-center justify-center font-bold z-10"
                   :class="{ 'md:left-0 md:-left-5': index % 2 === 0, 'md:right-0 md:-right-5 md:left-auto': index % 2 !== 0 }">
                   {{ index + 1 }}
-                </div>
+                </div> -->
                 
                 <div class="text-center md:text-left" :class="{ 'md:text-right': index % 2 !== 0 }">
                   <h3 class="text-2xl font-bold mb-4">{{ step.title }}</h3>

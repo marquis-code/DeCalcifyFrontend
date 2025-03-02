@@ -92,6 +92,12 @@
   </template>
   
   <script setup lang="ts">
+  import daniel from '@/assets/img/danel.jpeg'
+    import halima from '@/assets/img/halima.jpeg'
+      import agbomma from '@/assets/img/agboma.jpeg'
+         import oyinda from '@/assets/img/oyinda.jpeg'
+            import boju from '@/assets/img/boju.jpeg'
+                     import debbie from '@/assets/img/debbie.jpg'
   import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
   
   interface TeamMember {
@@ -103,37 +109,44 @@
   
   // Sample team members data
   const teamMembers = ref<TeamMember[]>([
-    {
-      id: 1,
-      name: 'PT. Debbie Orina',
-      specialties: ['OB/GYN', 'PREVENTIVE CARE'],
-      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=2874&auto=format&fit=crop'
-    },
-    {
-      id: 2,
-      name: 'MLS. Daniel Odiete',
-      specialties: ['PEDIATRICS', 'PRIMARY CARE'],
-      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2864&auto=format&fit=crop'
-    },
-    {
-      id: 3,
-      name: 'MLS. Oyindamola',
-      specialties: ['CARDIOLOGY', 'INTERNAL MEDICINE'],
-      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=2787&auto=format&fit=crop'
-    },
-    {
-      id: 4,
-      name: 'MLS. Agbomma',
-      specialties: ['NURSING', 'PATIENT CARE'],
-      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop'
-    },
-    {
-      id: 5,
-      name: 'MD. Daniel Osiagwu',
-      specialties: ['SURGERY', 'ONCOLOGY'],
-      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=2874&auto=format&fit=crop'
-    }
-  ]);
+  {
+    id: 1,
+    name: 'RAD. Orina Deborah',
+    specialties: ['BACKEND ENGINEER'],
+    image: debbie
+  },
+  {
+    id: 2,
+    name: 'MLS. Daniel Odiete',
+    specialties: ['DATA ENGINEER'],
+    image: daniel
+  },
+  {
+    id: 3,
+    name: 'MLS. Akinboyo Oyindamola',
+    specialties: ['MACHINE LEARNING ENGINEER'],
+    image: oyinda
+  },
+  {
+    id: 4,
+    name: 'MLS. Agboma Izobo',
+    specialties: ['FRONTEND ENGINEER'],
+    image: agbomma
+  },
+  {
+    id: 5,
+    name: 'MLS. Onitiju Halima',
+    specialties: ['UI/UX '],
+    image: halima
+  },
+  {
+    id: 6,
+    name: 'RN. Adebayo Oluwabojutomi',
+    specialties: ['CYBERSECURITY & COMPLIANCE'],
+    image: boju
+  }
+]);
+
   
   // Control variables
   const currentIndex = ref(0);
@@ -231,4 +244,5 @@
     font-family: 'Times New Roman', Times, serif;
     line-height: 0.9;
   }
+  
   </style>
