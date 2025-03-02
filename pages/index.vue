@@ -234,7 +234,7 @@
         
         <div class="relative">
           <!-- Progress line -->
-          <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 hidden md:block"></div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 hidden md:block"></div>
           
           <div class="space-y-20">
             <div 
@@ -254,14 +254,6 @@
                         <div class="w-full h-full bg-gray-200 animate-pulse rounded-full"></div>
                       </template>
                     </ClientOnly>
-                  <!-- <lottie-player
-                    :src="step.animation"
-                    background="transparent"
-                    speed="1"
-                    class="w-full"
-                    loop
-                    autoplay
-                  ></lottie-player> -->
                 </div>
               </div>
               
@@ -272,9 +264,10 @@
                   {{ index + 1 }}
                 </div> -->
                 
-                <div class="text-center md:text-left" :class="{ 'md:text-right': index % 2 !== 0 }">
-                  <h3 class="text-2xl font-bold mb-4">{{ step.title }}</h3>
-                  <p class="text-gray-600">{{ step.description }}</p>
+                <div class="flex justify-center items-center flex-col">
+                 <!-- <div class="text-center flex justify-center items-center flex-col md:text-left" :class="{ 'md:text-right': index % 2 !== 0 }"> -->
+                  <h3 class="text-xl text-center font-bold mb-4">{{ step.title }}</h3>
+                  <p class="text-gray-600 text-center">{{ step.description }}</p>
                 </div>
               </div>
             </div>
@@ -648,7 +641,7 @@ const steps = [
   {
     title: 'Monitor Progress',
     description: 'Track the decalcification process in real-time through our dashboard or mobile app.',
-    animation: 'https://assets3.lottiefiles.com/packages/lf20_qdkbuist.json'
+    animation: 'https://assets5.lottiefiles.com/packages/lf20_nw19osms.json'
   }
 ]
 

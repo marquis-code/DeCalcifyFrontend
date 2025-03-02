@@ -95,9 +95,9 @@
   import daniel from '@/assets/img/danel.jpeg'
     import halima from '@/assets/img/halima.jpeg'
       import agbomma from '@/assets/img/agboma.jpeg'
-         import oyinda from '@/assets/img/oyinda.jpeg'
+        import debbie from '@/assets/img/debbie.jpg'
+          import oyinda from '@/assets/img/oyinda.jpeg'
             import boju from '@/assets/img/boju.jpeg'
-                     import debbie from '@/assets/img/debbie.jpg'
   import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
   
   interface TeamMember {
@@ -146,7 +146,6 @@
     image: boju
   }
 ]);
-
   
   // Control variables
   const currentIndex = ref(0);
@@ -244,5 +243,4 @@
     font-family: 'Times New Roman', Times, serif;
     line-height: 0.9;
   }
-  
   </style>
