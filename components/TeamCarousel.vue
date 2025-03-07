@@ -95,7 +95,7 @@
   import daniel from '@/assets/img/danel.jpeg'
     import halima from '@/assets/img/halima.jpeg'
       import agbomma from '@/assets/img/agboma.jpeg'
-        import debbie from '@/assets/img/debbie.jpg'
+        import debbie from '@/assets/img/deborah.jpeg'
           import oyinda from '@/assets/img/oyinda.jpeg'
             import boju from '@/assets/img/boju.jpeg'
   import { ref, computed, onMounted, onBeforeUnmount } from 'vue';

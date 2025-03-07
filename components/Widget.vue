@@ -475,6 +475,8 @@
 </template>
 
 <script setup lang="ts">
+import { useCreatePrediction } from '@/composables/prediction/useCreatePrediction'
+const { loading, setPayload, createPrediction, payload } = useCreatePrediction()
 import { ref, computed, watch, onMounted } from 'vue'
 
 // Form data
@@ -648,12 +650,39 @@ const getFluidTypeDescription = (value: string): string => {
 }
 
 // Form submission
-const submitForm = () => {
+const submitForm = async () => {
   if (!isFormValid.value) return
   
   currentStep.value = 'loading'
   
   // Simulate loading progress
+  // formData.value.sampleType !== '' &&
+  //   formData.value.fluidType !== '' &&
+  //   formData.value.percentage > 0 &&
+  //   formData.value.startDate !== ''
+const startDate = new Date(formData.value.startDate);
+const payloadObj = {
+  sample: formData.value.sampleType,
+  fluid: formData.value.fluidType,
+  percentage: formData.value.percentage,
+  day: startDate.getDate(),
+  month: startDate.getMonth() + 1, // getMonth() returns 0-11, so we add 1 for 1-12
+  year: startDate.getFullYear(),
+};
+
+setPayload(payloadObj);
+
+await createPrediction()
+  .then(() => {
+    // Handle success
+  })
+  .catch(() => {
+    // Handle error
+  })
+  .finally(() => {
+    // Handle completion
+  });
+
   loadingProgress.value = 0
   const interval = setInterval(() => {
     loadingProgress.value += 5
